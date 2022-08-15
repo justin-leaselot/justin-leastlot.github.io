@@ -1,0 +1,536 @@
+// Start of CSS Reset
+
+/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Roboto";
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// END OF CSS RESET
+
+// GLOBAL STYLES
+@font-face {
+  font-family: NewakeFont;
+  src: url(fonts/Newake-Font.otf);
+}
+
+section {
+  font-family: "Roboto";
+}
+
+//COLORS
+$RED: #d63031;
+$BLUE: #203c57;
+$BLUE_BG: rgba(32, 60, 87, 0.05);
+$YELLOW: #f5c343;
+$BUTTON_HOVER: #f5c343bd;
+
+//SIZES
+$MAX_WIDTH: 1500px;
+$TABLET: 820px;
+
+.section-spacing {
+  max-width: $MAX_WIDTH;
+  padding: 8.75rem 6.25rem;
+  margin: 0 auto;
+
+  @media only screen and (max-width: $TABLET) {
+    padding: 5rem 1rem;
+  }
+}
+
+.hero-content {
+  background: $BLUE_BG;
+  position: relative;
+
+  .top-nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 2.5em 6.5rem 0 6.5rem;
+    max-width: $MAX_WIDTH;
+    margin: 0 auto;
+
+    @media only screen and (max-width: $TABLET) {
+      padding: 2.5em 1rem 2em 1rem;
+    }
+  }
+
+  .logo {
+    max-width: 144px;
+    width: 30%;
+  }
+
+  .hero-container {
+    display: grid;
+    padding: 5rem 6.5rem 13rem 6.5rem;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: $MAX_WIDTH;
+    margin: 0 auto;
+
+    .hero-left-content {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0px;
+      font-family: NewakeFont;
+      letter-spacing: 1px;
+    }
+
+    .hero-title-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        width: 215px;
+      }
+    }
+
+    .hero-img {
+      width: 40%;
+      max-width: 277px;
+      padding-right: 0.75rem;
+    }
+
+    .hero-title-bottom-text {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .hero-benefits-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero-benefit-item {
+      display: flex;
+      flex-direction: row;
+      align-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .hero-benefit-icon-img {
+      width: 3%;
+      height: auto;
+      padding-right: 1rem;
+    }
+
+    .hero-benefit-item-text {
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: $YELLOW;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        background-color: $BUTTON_HOVER;
+      }
+    }
+
+    .hero-right-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-right-content img {
+      width: 100%;
+      max-width: 390px;
+
+      @media only screen and (max-width: $TABLET) {
+        max-width: 300px;
+      }
+    }
+
+    @media only screen and (max-width: $TABLET) {
+      grid-template-columns: none;
+      grid-template-rows: 1fr 1fr;
+      padding: 1rem;
+      justify-content: center;
+      gap: 0;
+
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-title-bottom {
+        img {
+          width: 140px;
+        }
+      }
+
+      .hero-benefit-item {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .hero-wave {
+    position: absolute;
+    width: 100%;
+
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
+
+.dealer-divider {
+  width: 100%;
+  background: url("./images/dealer-divider-img.png");
+  height: 100px;
+  background-repeat-x: repeat;
+  background-position: center;
+  background-size: contain;
+  background-repeat-y: no-repeat;
+
+  @media only screen and (max-width: $TABLET) {
+    background-size: 800px;
+  }
+}
+
+.dealer-container {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: center;
+  gap: 2rem;
+
+  img {
+    width: 56px;
+  }
+
+  .dealer-left-content {
+    p {
+      &:first-child {
+        font-size: 3rem;
+        font-weight: bold;
+        position: relative;
+        width: max-content;
+        font-family: NewakeFont;
+        letter-spacing: 1px;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 20px;
+          background-color: $RED;
+          position: absolute;
+          top: -1.5rem;
+        }
+      }
+
+      font-size: 1.25rem;
+    }
+  }
+
+  .dealer-right-content-solution-box {
+    border-radius: 8px;
+    color: $BLUE;
+    border: 2px solid $BLUE;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  @media only screen and (max-width: $TABLET) {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+
+    .dealer-left-content {
+      p {
+        &:first-child {
+          font-size: 2rem;
+
+          &::before {
+            content: "";
+            width: 100%;
+            height: 15px;
+            background-color: $RED;
+            position: absolute;
+            top: -1.2rem;
+          }
+        }
+
+        font-size: 1rem;
+      }
+    }
+
+    .dealer-middle-content {
+      display: none;
+    }
+  }
+}
+
+.lender-container {
+  .lender-top-content {
+    text-align: center;
+
+    p {
+      &:first-child {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        font-family: NewakeFont;
+        letter-spacing: 1px;
+      }
+
+      font-size: 1.25rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
+
+  .lender-bottom-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    gap: 5rem;
+
+    .lender-bottom-content-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      text-align: center;
+
+      .img-wrapper {
+        height: 50px;
+        width: 50px;
+        display: grid;
+        place-items: center;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: $TABLET) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .lender-bottom-content-item {
+        width: 270px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $TABLET) {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+
+    .lender-top-content {
+      p {
+        &:first-child {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.why-us {
+  background: $BLUE_BG;
+
+  position: relative;
+  overflow: hidden;
+
+  .middle-divider-top,
+  .middle-divider-bottom {
+    position: absolute;
+    width: 100%;
+  }
+  .middle-divider-top {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .middle-divider-bottom {
+    bottom: 0;
+    left: 50%;
+    transform: rotate(180deg) translate(50%, 0%);
+  }
+
+  .why-us-container {
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+
+    padding: 12rem 6.5rem;
+
+    img {
+      width: 330px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    button {
+      margin-top: 1rem;
+
+      border: none;
+      border-radius: 4px;
+      color: white;
+      background-color: $YELLOW;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        background-color: $BUTTON_HOVER;
+      }
+    }
+
+    @media only screen and (max-width: $TABLET) {
+      p {
+        font-size: 1.25rem;
+      }
+
+      img {
+        width: 300px;
+      }
+
+      padding: 9rem 1rem;
+    }
+  }
+}
+
+.footer-container {
+  padding: 8.75rem 6.25rem 5rem 6.25rem;
+  // font-family: rob;
+
+  .footer-bottom-content {
+    border-top: 1px solid $BLUE_BG;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    font-size: 0.875rem;
+
+    .footer-bottom-left,
+    .footer-bottom-right {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .footer-bottom-right-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $TABLET) {
+    .footer-bottom-left {
+      width: 100px;
+    }
+    padding: 8.75rem 1rem 3rem 1rem;
+    align-items: baseline;
+  }
+}
